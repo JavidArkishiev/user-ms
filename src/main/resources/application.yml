@@ -1,0 +1,47 @@
+spring:
+  mail:
+    username: javidarkishiev@gmail.com
+    password: feut yvtr ljbm dzbn
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          connection-timeout: 5000
+#          timeout: 5000
+          auth: true
+          starttls:
+            enable: true
+        main:
+          allow-circular-references: true
+
+  application:
+    name: user-ms
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user-db
+    username: postgres
+    password: 5253228432
+  jpa:
+    #    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        store_data_at_delete: true
+        default_schema: user_ms
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+#  flyway:
+#    enabled: true
+#    locations: classpath:db/migration
+#    baseline-on-migrate: true
+
+swagger-ui:
+  path: /swagger-ui.html
+  enabled: true
+server:
+  port: ${PORT:9090}
+
+jwt:
+  secret: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+

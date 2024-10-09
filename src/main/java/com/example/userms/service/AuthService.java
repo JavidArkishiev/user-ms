@@ -41,9 +41,8 @@ public class AuthService {
         }
 
         User userEntity = userMapper.mapToEntity(signUpRequest);
-        userRepository.save(userEntity);
         emailService.sendVerificationEmail(signUpRequest.getEmail(), userEntity.getOtp());
-
+        userRepository.save(userEntity);
     }
 
     public AuthResponse login(LoginRequest loginRequest) throws MessagingException {

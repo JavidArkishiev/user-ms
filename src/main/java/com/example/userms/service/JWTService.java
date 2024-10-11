@@ -33,6 +33,8 @@ public class JWTService {
                         .stream()
                         .map(GrantedAuthority::getAuthority)
                         .toList())
+                .claim("firstName", user.getFirstName())
+                .claim("lastName", user.getLastName())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)

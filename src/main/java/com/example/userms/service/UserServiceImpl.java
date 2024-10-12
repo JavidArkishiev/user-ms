@@ -83,4 +83,11 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserResponseDto getUserProfileByEmail(String email) {
+        var user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new DataNotFoundException("User not found"));
+        return userMapper.mapToDto(user);
+    }
+
 }

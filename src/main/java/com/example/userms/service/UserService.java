@@ -19,4 +19,6 @@ public interface UserService {
     void deleteAccount(DeleteAccountDto dto, HttpServletRequest request);
 
     void updateUser(UserRequestDto requestDto);
+
+    UserResponseDto getUserProfileByEmail(String email);
 }

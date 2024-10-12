@@ -37,6 +37,13 @@ public class UserController {
         return BaseResponse.oK(userService.getUserProfile());
     }
 
+    @GetMapping("user-profile/email")
+    @PreAuthorize("hasAuthority('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    public BaseResponse<UserResponseDto> getUserProfileByEmail(@RequestParam String email) {
+        return BaseResponse.oK(userService.getUserProfileByEmail(email));
+    }
+
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.OK)
